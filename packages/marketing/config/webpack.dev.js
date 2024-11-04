@@ -5,24 +5,24 @@ const commonConfig = require("./webpack.common");
 const packagejson = require("../package.json");
 
 const devConfig = {
-  mode: "development",
+  mode: 'development',
   devServer: {
     port: 8081,
     historyApiFallback: {
-      index: "index.html",
+      index: 'index.html',
     },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "marketing",
-      filename: "remoteEntry.js",
+      name: 'marketing',
+      filename: 'remoteEntry.js',
       exposes: {
-        "./MarketingApp": "./src/bootstrap",
+        './MarketingApp': './src/bootstrap',
       },
       shared: packagejson.dependencies,
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: './public/index.html',
     }),
   ],
 };
