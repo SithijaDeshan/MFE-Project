@@ -22,12 +22,12 @@ export default () => {
         <div>
           <Header onSignOut={() => ssetIsSigndIn(false)} isSignedIn={isSignedIn} />
           <Suspense fallback={<Progress/>}>
-            <switch>
+            <Switch>
               <Route path="/auth">
                 <AuthLazy onSignIn = {() => ssetIsSigndIn(true)}/>
               </Route>
               <Route path="/" component={MarketingLazy} />
-            </switch>
+            </Switch>
           </Suspense>
         </div>
       </StylesProvider> 
