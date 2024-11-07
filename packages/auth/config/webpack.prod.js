@@ -4,17 +4,17 @@ const commonConfig = require("./webpack.common");
 const packagejson = require("../package.json");
 
 const prodConfig = {
-  mode: "production",
+  mode: 'production',
   output: {
-    filename: "[name].[contenthash].js",
+    filename: '[name].[contenthash].js',
     publicPath: '/auth/latest/',
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "auth",
-      filename: "remoteEntry.js",
+      name: 'auth',
+      filename: 'remoteEntry.js',
       exposes: {
-        "./AuthApp": "./src/bootstrap",
+        './AuthApp': './src/bootstrap',
       },
       shared: packagejson.dependencies
     }),
